@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <XmlExtensions.SettingsMenuDef>
+    <defName>CustomInfestations_Menu</defName>
+    <modId>whitespacekilla.infestations</modId>
+    <label>Custom Infestations</label>
+    <settings>
+      <!-- Forbidden Settings -->
+      <li Class="XmlExtensions.Setting.Text">
+        <text>Prevent Infestations</text>
+        <anchor>Middle</anchor>
+        <font>Medium</font>
+      </li>
+      <li Class="XmlExtensions.Setting.Checkbox">
+        <key>ForbidOnBuildings</key>
+        <label>Forbid infestations on tiles with buildings</label>
+        <defaultValue>false</defaultValue>
+      </li>
+      <li Class="XmlExtensions.Setting.Checkbox">
+        <key>ForbidOnStoneFloor</key>
+        <label>Forbid infestations on stone floors (restart)</label>
+        <defaultValue>false</defaultValue>
+      </li>
+      <li Class="XmlExtensions.Setting.Checkbox">
+        <key>ForbidOnSteelFloor</key>
+        <label>Forbid infestations on steel tile floors (restart)</label>
+        <defaultValue>false</defaultValue>
+      </li>
+      <li Class="XmlExtensions.Setting.Checkbox">
+        <key>ForbidOnConcreteFloor</key>
+        <label>Forbid infestations on concrete floors (restart)</label>
+        <defaultValue>false</defaultValue>
+      </li>
+      <li Class="XmlExtensions.Setting.Checkbox">
+        <key>ForbidOnPavedFloor</key>
+        <label>Forbid infestations on paved tile floors (restart)</label>
+        <defaultValue>false</defaultValue>
+      </li>
+      <li Class="XmlExtensions.Setting.Checkbox">
+        <key>ForbidOnPreciousFloor</key>
+        <label>Forbid infestations on silver/gold tile floors (restart)</label>
+        <defaultValue>false</defaultValue>
+      </li>
+      <li Class="XmlExtensions.Setting.Checkbox">
+        <key>ForbidOnSterileFloor</key>
+        <label>Forbid infestations on sterile tile floors (restart)</label>
+        <defaultValue>false</defaultValue>
+      </li>
+      <li Class="XmlExtensions.Setting.Checkbox">
+        <key>ForbidOnCarpetFloor</key>
+        <label>Forbid infestations on carpet floors (restart)</label>
+        <defaultValue>false</defaultValue>
+      </li>
+      <li Class="XmlExtensions.Setting.GapLine"/>
+      <!-- Minimum Settings -->
+      <li Class="XmlExtensions.Setting.Text">
+        <text>Minimums</text>
+        <anchor>Middle</anchor>
+        <font>Medium</font>
+      </li>
+      <li Class="XmlExtensions.Setting.Numeric">
+        <key>MinimumDistanceToColonyBuilding</key>
+        <label>Minimum distance to a colony building</label>
+        <defaultValue>30</defaultValue>
+        <min>0</min>
+        <max>300</max>
+      </li>
+      <li Class="XmlExtensions.Setting.Numeric">
+        <key>SmallestClosedArea</key>
+        <label>Smallest enclosed area to consider</label>
+        <defaultValue>2</defaultValue>
+        <min>1</min>
+        <max>300</max>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>MinimumScore</key>
+        <label>Minimum score to consider - {MinimumScore}</label>
+        <defaultValue>5.3606532918</defaultValue>
+        <decimals>1</decimals>
+        <min>0</min>
+        <max>100</max>
+      </li>
+      <li Class="XmlExtensions.Setting.GapLine"/>
+      <!-- Lighting Settings -->
+      <li Class="XmlExtensions.Setting.Text">
+        <text>Lighting</text>
+        <anchor>Middle</anchor>
+        <font>Medium</font>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>BrightestLightClamp</key>
+        <label>Light Clamp - {BrightestLightClamp}</label>
+        <defaultValue>1.0</defaultValue>
+        <decimals>2</decimals>
+        <min>0.0</min>
+        <max>1.0</max>
+      </li>
+      <li Class="XmlExtensions.Setting.Text">
+        <text>At what value of lighting (i.e. 0.0-0.3 dark, 0.3-0.9 lit, 0.9-1.0 brightly lit) will we use the maximum attenuation from light</text>
+        <font>Small</font>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>MaximumLightAttenuation</key>
+        <label>Maximum attenuation - {MaximumLightAttenuation}</label>
+        <defaultValue>0.82</defaultValue>
+        <decimals>2</decimals>
+        <min>0.0</min>
+        <max>1.0</max>
+      </li>
+      <li Class="XmlExtensions.Setting.Text">
+        <text>How much are we reducing the tile's score (i.e. score * (1 - attenuation)) at brightest lighting</text>
+        <font>Small</font>
+      </li>
+      <li Class="XmlExtensions.Setting.GapLine"/>
+      <!-- Temperature Settings -->
+      <li Class="XmlExtensions.Setting.Text">
+        <text>Temperature</text>
+        <anchor>Middle</anchor>
+        <font>Medium</font>
+      </li>
+      <li Class="XmlExtensions.Setting.SplitColumns">
+        <splits>
+          <li>0.6</li>
+          <li>0.2</li>
+          <li>0.2</li>
+        </splits>
+        <settings>
+          <li>
+            <li Class="XmlExtensions.Setting.Text">
+              <text>The full temperature range (C) at which an infestation is possible</text>
+              <font>Small</font>
+            </li>
+            <li Class="XmlExtensions.Setting.Text">
+              <text>The temperature range (C) where odds of infestation are unaffected</text>
+              <font>Small</font>
+            </li>
+          </li>
+          <li>
+            <li Class="XmlExtensions.Setting.Numeric">
+              <key>PossibleTemperatureRangeMin</key>
+              <defaultValue>-17</defaultValue>
+              <min>-270</min>
+              <max>1000</max>
+            </li>
+            <li Class="XmlExtensions.Setting.Numeric">
+              <key>SafeTemperatureRangeMin</key>
+              <defaultValue>-7</defaultValue>
+              <min>-270</min>
+              <max>1000</max>
+            </li>
+          </li>
+          <li>
+            <li Class="XmlExtensions.Setting.Numeric">
+              <key>PossibleTemperatureRangeMax</key>
+              <defaultValue>1000</defaultValue>
+              <min>-270</min>
+              <max>1000</max>
+            </li>
+            <li Class="XmlExtensions.Setting.Numeric">
+              <key>SafeTemperatureRangeMax</key>
+              <defaultValue>1000</defaultValue>
+              <min>-270</min>
+              <max>1000</max>
+            </li>
+          </li>
+        </settings>
+      </li>
+    </settings>
+    <postCloseActions>
+      <li Class="CustomInfestations.ResetSettings"/>
+    </postCloseActions>
+  </XmlExtensions.SettingsMenuDef>
+</Defs>

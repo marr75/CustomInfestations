@@ -13,8 +13,11 @@ public static class MyCompSpawnerHives {
     [HarmonyPostfix]
     [HarmonyPatch("CanSpawnHiveAt")]
     static void PostCanSpawnHiveAt(IntVec3 c, Map map, ref bool __result) {
-        __result = __result 
-            && c.GetThingList(map).All(thing => thing.def.category != ThingCategory.Building) 
+        __result = __result
+            && (
+                !Settings.ForbidOnBuildings
+                || c.GetThingList(map).All(thing => thing.def.category != ThingCategory.Building)
+            )
             && !map.terrainGrid.TerrainAt(c).HasTag("NoInfestation");
     }
 }

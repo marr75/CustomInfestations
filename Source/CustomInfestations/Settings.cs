@@ -36,9 +36,20 @@ static class Settings {
 
     delegate bool TryParseHandler<T>(string value, out T result);
     
+    static string GetDefaultSetting(string key) {
+        try
+        {
+            return SettingsManager.GetDefaultValue(ModIdentifier, key);
+        }
+        catch
+        {
+            return (string) null;
+        }
+    }
+    
     static T SafeGetSetting<T>(string settingName) where T : struct {
         var attemptedValue = SettingsManager.GetSetting(ModIdentifier, settingName);
-        var attemptedDefaultValue = SettingsManager.GetDefaultValue(ModIdentifier, settingName);
+        var attemptedDefaultValue = GetDefaultSetting(settingName);
         var defaultValue = attemptedDefaultValue.ParseAs<T>() ?? new T();
         var value = attemptedValue.ParseAs<T>(defaultValue);
         return value;

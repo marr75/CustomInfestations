@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>whitespacekilla.infestations</modId>
+        <key>ForbidOnStoneFloor</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                <xpath>Defs/TerrainDef[
+                    @Name="TileStoneBase"
+                    or @Name="FlagstoneBase"
+                ]</xpath>
+                <safetyDepth>1</safetyDepth>
+                <value>
+                    <tags>
+                        <li>NoInfestation</li>
+                    </tags>
+                </value>
+            </Operation>
+        </caseTrue>
+    </Operation>
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>whitespacekilla.infestations</modId>
+        <key>ForbidOnSteelFloor</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                <xpath>Defs/TerrainDef[defName="MetalTile"]</xpath>
+                <safetyDepth>1</safetyDepth>
+                <value>
+                    <tags>
+                        <li>NoInfestation</li>
+                    </tags>
+                </value>
+            </Operation>
+        </caseTrue>
+    </Operation>
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>whitespacekilla.infestations</modId>
+        <key>ForbidOnPreciousFloor</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                <xpath>Defs/TerrainDef[defName="SilverTile" or defName="GoldTile"]</xpath>
+                <safetyDepth>1</safetyDepth>
+                <value>
+                    <tags>
+                        <li>NoInfestation</li>
+                    </tags>
+                </value>
+            </Operation>
+        </caseTrue>
+    </Operation>
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>whitespacekilla.infestations</modId>
+        <key>ForbidOnSterileFloor</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                <xpath>Defs/TerrainDef[defName="SterileTile"]</xpath>
+                <safetyDepth>1</safetyDepth>
+                <value>
+                    <tags>
+                        <li>NoInfestation</li>
+                    </tags>
+                </value>
+            </Operation>
+        </caseTrue>
+    </Operation>
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>whitespacekilla.infestations</modId>
+        <key>ForbidOnCarpetFloor</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                <xpath>Defs/TerrainTemplateDef[defName="Carpet"]</xpath>
+                <safetyDepth>1</safetyDepth>
+                <value>
+                    <tags>
+                        <li>NoInfestation</li>
+                    </tags>
+                </value>
+            </Operation>
+        </caseTrue>
+    </Operation>
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>whitespacekilla.infestations</modId>
+        <key>ForbidOnConcreteFloor</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                <xpath>Defs/TerrainDef[defName="Concrete"]</xpath>
+                <safetyDepth>1</safetyDepth>
+                <value>
+                    <tags>
+                        <li>NoInfestation</li>
+                    </tags>
+                </value>
+            </Operation>
+        </caseTrue>
+    </Operation>
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>whitespacekilla.infestations</modId>
+        <key>ForbidOnPavedFloor</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                <xpath>Defs/TerrainDef[defName="PavedTile"]</xpath>
+                <safetyDepth>1</safetyDepth>
+                <value>
+                    <tags>
+                        <li>NoInfestation</li>
+                    </tags>
+                </value>
+            </Operation>
+        </caseTrue>
+    </Operation>
+    <Operation Class="XmlExtensions.Log">
+        <text>[Custom Infestations] Vanilla Floors Patches Applied</text>
+    </Operation>
+</Patch>

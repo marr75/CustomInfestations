@@ -75,30 +75,6 @@ public static class MyInfestationCellFinder {
     ) {
         var region = cell.GetRegion(map);
 
-        #if DEBUG
-
-        var things = map.thingGrid.ThingsAt(cell).ToArray();
-        var tags = map.terrainGrid.TerrainAt(cell).tags ?? Enumerable.Empty<string>();
-        var test = new {
-            X = cell.x,
-            Z = cell.z,
-            Initialized = distToColonyBuilding != null
-                && region != null
-                && closedAreaSize != null
-                && regionsDistanceToUnroofed != null,
-            DistanceToColonyBuilding = distToColonyBuilding != null ? distToColonyBuilding[cell] : -1,
-            Walkable = cell.Walkable(map),
-            Fogged = map.fogGrid.IsFogged(cell),
-            Blocked = CellHasBlockingThings(cell, map),
-            ThingString = string.Join(", ", things.Select(t => t.def.defName)),
-            HasBuildings = things.Any(thing => thing.def.category == ThingCategory.Building),
-            Tags = string.Join(", ", tags),
-            Roof = map.roofGrid.RoofAt(cell),
-            ClosedArea = closedAreaSize != null ? closedAreaSize[cell] : -1,
-        };
-        
-        #endif
-        
         var inappropriateCell = distToColonyBuilding == null
             || region == null
             || closedAreaSize == null
